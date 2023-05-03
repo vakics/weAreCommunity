@@ -2,15 +2,20 @@ Feature: Communities page test
 
   Background:
     Given the home page is opened
-    And Communities button is clicked
+    And the Communities button is clicked
 
     Scenario: We get to the communities page
       Then the communities page is opened
+
+    Scenario: Login button is working on the communities page
+      When the Login button is clicked
+      Then the login page is opened
 
     Scenario: The user can see the searchbar
       Then the searchbar is visible
 
     Scenario Outline: the searchbar is working
+      Given the searchbar is clicked
       When "<search>" is typed in searchbar
       Then "<name>" card is visible
       Examples:
